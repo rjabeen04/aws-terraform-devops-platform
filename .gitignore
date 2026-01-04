@@ -10,3 +10,6 @@ crash.log
 crash.*.log
 *.tfvars
 *.tfvars.json
+
+# Generated policy files
+infra/terraform/envs/dev/iam_policy*.json
