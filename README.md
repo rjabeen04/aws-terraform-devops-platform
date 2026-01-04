@@ -54,7 +54,7 @@ The project mirrors how modern DevOps teams **design, deploy, secure, and operat
 - IAM roles assumed using **OIDC**
 - Least-privilege IAM policies
 - Private S3 bucket accessible only through CloudFront OAC
-- Terraform state locking prevents concurrent changes
+- Terraform state locking prevents concurrent infrastructure changes
 
 ---
 
@@ -79,44 +79,7 @@ aws-terraform-devops-platform/
 ├── .github/
 │   └── workflows/
 │       ├── terraform-dev.yml     # Terraform CI/CD
-│       └── deploy-frontend.yml   # Frontend deployment
+│       └── deploy-frontend.yml   # Frontend CI/CD
 │
 └── README.md
-
-## 🚀 CI/CD Workflows
-
-### Terraform (Dev)
-- Triggered on push to `main`
-- Runs:
-  - `terraform fmt`
-  - `terraform init`
-  - `terraform validate`
-  - `terraform plan / terraform apply`
-- Uses GitHub Actions **OIDC → IAM Role** authentication
-
-### Frontend Deployment
-- Triggered on changes to `app/frontend/**`
-- Syncs frontend files to a **private S3 bucket**
-- Automatically **invalidates CloudFront cache**
-
----
-
-## 🌍 Live Endpoints
-
-### Frontend (CloudFront + S3)
-
-### Backend API (CloudFront + ALB + EKS)
-
----
-
-## 🧠 What This Project Demonstrates
-
-- Real production **Terraform patterns**
-- Secure **CI/CD with GitHub Actions and OIDC**
-- Kubernetes workloads deployed on **AWS EKS**
-- CloudFront CDN in front of:
-  - Static frontend (S3)
-  - Backend APIs (ALB + EKS)
-- Strong **IAM least-privilege design**
-- End-to-end **DevOps ownership**
 
