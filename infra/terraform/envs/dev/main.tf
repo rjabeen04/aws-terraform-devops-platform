@@ -1,8 +1,6 @@
-resource "aws_s3_bucket" "dev_smoke" {
-  bucket = "dev-smoke-${random_id.suffix.hex}"
-}
-
-resource "random_id" "suffix" {
-  byte_length = 4
+module "vpc" {
+  source   = "../../modules/vpc"
+  project  = "aws-terraform-devops-platform"
+  vpc_cidr = "10.20.0.0/16"
 }
 
