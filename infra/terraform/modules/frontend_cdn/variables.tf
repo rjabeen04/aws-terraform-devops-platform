@@ -3,7 +3,7 @@ variable "project" {
 }
 
 variable "bucket_name" {
-  type = string
+  type        = string
   description = "Unique S3 bucket name for the frontend site."
 }
 
