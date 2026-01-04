@@ -1,13 +1,16 @@
 name: Terraform (Dev)
-
 on:
+  workflow_dispatch:
   pull_request:
     paths:
       - "infra/terraform/**"
+      - ".github/workflows/**"
   push:
     branches: ["main"]
     paths:
       - "infra/terraform/**"
+      - ".github/workflows/**"
+
 
 permissions:
   id-token: write
